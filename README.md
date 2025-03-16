@@ -1,10 +1,10 @@
 # Diabetes and Lifestyle Factors - Machine Learning Analysis
 
 ## Project Description
-* To better understand the relationship between lifestyle and diabetes in the US
+* This project aims to better understand the relationship between lifestyle and diabetes in the US
 
 ## Dataset Information
-The dataset is downloaded from [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators). The schema can be download from [Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf). Note that the data source does not specify the type of diabetes, whether it's type 1 or type 2.
+The data is downloaded from Centers for Disease Control and Prevention (CDC) on [Kaggle](https://www.kaggle.com/datasets/cdc/behavioral-risk-factor-surveillance-system?select=2015.csv). The schema can be found [here](https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf).
 ### Target
 * `Diabetes_binary`: 0 = no diabetes; 1 = pre-diabetes or diabetes
 ### Features
@@ -22,8 +22,8 @@ The dataset is downloaded from [UCI Machine Learning Repository](https://archive
 12.	`AnyHealthcare`: Have any kind of health care coverage, including health insurance, prepaid plans such as HMO, etc. 0 = no; 1 = yes
 13.	`NoDocbcCost`: Was there a time in the past 12 months when you needed to see a doctor but could not because of cost? 0 = no; 1 = yes
 14.	`GenHlth`: Would you say that in general your health is (scale 1-5): 1 = excellent; 2 = very good; 3 = good; 4 = fair; 5 = poor
-15.	`MentHlth`: Regarding your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good? scale 1-30 days
-16.	`PhysHlth`: Regarding your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good? scale 1-30 days
+15.	`MentHlth`: Regarding your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good? Scale 1-30 days
+16.	`PhysHlth`: Regarding your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good? Scale 1-30 days
 17.	`DiffWalk`: Do you have serious difficulty walking or climbing stairs? 0 = no; 1 = yes
 18.	`Sex`: 0 = female; 1 = male
 19.	`Age`: Age in categories. 1 = 18-24; 2 = 25-29; ...; 13 = 80 or older
@@ -31,18 +31,20 @@ The dataset is downloaded from [UCI Machine Learning Repository](https://archive
 21.	`Income`: Income level. 1 = less than $10,000; 2 = $10,000 to less than $15,000;...; 8 = $75,000 or more
 
 ## Project Structure
-* `Result - Neural network.ipynb`: Jupyter Notebook that implements the ANN for diabetes risk prediction
-*  `data/diabetes_binary_5050split_health_indicators_BRFSS2015.csv`: Dataset containing lifestyle and medical history data
-
-## Data Preprocessing
-### Feature Engineering
-* Discretises the numerical `PhysHlth` and `MentHlth` into 0, 1-7, 8-14, 15-21, 22-28, 29-30
-
-## Modeling
-* A simple neural network model was trained. After training, the training accuracy and validation accuracy were used to evaluate the model’s performance. 
-* To reduce avoidable bias i.e. the gap between Bayes error and training error, a larger network was fitted. Random Search was used to perform the hyperparameter search with the objective of maximising accuracy. 
-* To reduce variance, L2 regularisation was added. Another Random Search was run for 10 trials, now optimising the validation accuracy with L2 regularisation hyperparameters. 
-* After running the tuning process, the best model was evaluated for test accuracy. 
-* To interpret the model, permutation feature importance was computed and visualised.
+* `data/` 
+    * `diabetes_binary_5050split_health_indicators_BRFSS2015.csv`: Cleaned dataset downloaded from [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators) for first round of analysis
+    * `BRFSS-2015_binary.csv`: Raw data for the current round of analysis
+    * `BRFSS-2015_binary_clean.csv`: Preprocessed dataset for current round of analysis
+    * `data_train_borderline_smote.csv`, `data_val.csv`, `data_test.csv`: Training set, validation set and test set for modelling in current round of analysis
+* `schema/`:
+    `codebook15_llcp.pdf`: Schema for 2015 data
+* `method/`: Technical documentation folder containing explanations of methodologies used in this project including borderline SMOTE, Neural network, XGBoost, Permutation feature importance
+* `archive/Result - Neural network.ipynb`: 1st round of analysis implementing the ANN for diabetes risk prediction. It uses the dataset downloaded from `diabetes_binary_5050split_health_indicators_BRFSS2015.csv`
+* `2.0 Data source.ipynb`: Notebook detailing data acquisition process and initial dataset information
+* `2.1 Data checking.ipynb`:  Initial data quality checks, missing value analysis, and basic data validation
+* `2.2 Data exploration.ipynb`: Exploratory data analysis with visualizations of feature distributions and relationships
+* `2.3 Data preprocessing.ipynb`: Data cleaning, transformation, and feature engineering steps
+* `3.1 Model building - NN.ipynb`: Implementation of neural network models with hyperparameter tuning
+* `3.2 Model building - xgboost.ipynb`: Implementation of XGBoost models with hyperparameter optimization
 
 
