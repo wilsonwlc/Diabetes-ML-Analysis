@@ -1,7 +1,7 @@
 # Diabetes and Lifestyle Factors - Machine Learning Analysis
 
 ## Project Description
-* This project aims to better understand the relationship between lifestyle and diabetes in the US
+This project aims to better understand the relationship between lifestyle and diabetes in the US, based on data collected in 2015.
 
 ## Dataset Information
 The data is downloaded from Centers for Disease Control and Prevention (CDC) on [Kaggle](https://www.kaggle.com/datasets/cdc/behavioral-risk-factor-surveillance-system?select=2015.csv). The schema can be found [here](https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf).
@@ -40,7 +40,7 @@ The data is downloaded from Centers for Disease Control and Prevention (CDC) on 
     `codebook15_llcp.pdf`: Schema for 2015 data
 * `method/`: Technical documentation folder containing explanations of methodologies used in this project including borderline SMOTE, Neural network, XGBoost, Permutation feature importance
 * `archive/Result - Neural network.ipynb`: 1st round of analysis implementing the ANN for diabetes risk prediction. It uses the dataset downloaded from `diabetes_binary_5050split_health_indicators_BRFSS2015.csv`
-* `2.0 Data source.ipynb`: Notebook detailing data acquisition process and initial dataset information
+* `2.0 Data acquisition.ipynb`: Notebook detailing data acquisition process and initial dataset information
 * `2.1 Data checking.ipynb`:  Initial data quality checks, missing value analysis, and basic data validation
 * `2.2 Data exploration.ipynb`: Exploratory data analysis with visualizations of feature distributions and relationships
 * `2.3 Data preprocessing.ipynb`: Data cleaning, transformation, and feature engineering steps
