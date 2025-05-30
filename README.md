@@ -33,9 +33,9 @@ The data is downloaded from Centers for Disease Control and Prevention (CDC) on 
 ## Project Structure
 * `data/` 
     * `diabetes_binary_5050split_health_indicators_BRFSS2015.csv`: Cleaned dataset downloaded from [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators) for first round of analysis
-    * `BRFSS-2015_binary.csv`: Raw data for the current round of analysis
-    * `BRFSS-2015_binary_clean.csv`: Preprocessed dataset for current round of analysis
-    * `data_train_borderline_smote.csv`, `data_val.csv`, `data_test.csv`: Training set, validation set and test set for modelling in current round of analysis
+    * `BRFSS-2015_binary.parquet`: Raw data for the current round of analysis
+    * `BRFSS-2015_binary_clean.parquet`: Preprocessed dataset for current round of analysis
+    * `data_train_borderline_smote.parquet`, `data_val.parquet`, `data_test.parquet`: Training set, validation set and test set for modelling in current round of analysis
 * `schema/`:
     `codebook15_llcp.pdf`: Schema for 2015 data
 * `method/`: Technical documentation folder containing explanations of methodologies used in this project including borderline SMOTE, Neural network, XGBoost, Permutation feature importance
